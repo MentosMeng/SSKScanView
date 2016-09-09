@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/zbar
+END
+Scanner.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/zbar/Scanner.h
+END
+ImageScanner.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/zbar/ImageScanner.h
+END
+Exception.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/zbar/Exception.h
+END
+Processor.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/zbar/Processor.h
+END
+Image.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/zbar/Image.h
+END
+Decoder.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/zbar/Decoder.h
+END
+Symbol.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/zbar/Symbol.h
+END
+Video.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/zbar/Video.h
+END
+Window.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/zbar/Window.h
+END

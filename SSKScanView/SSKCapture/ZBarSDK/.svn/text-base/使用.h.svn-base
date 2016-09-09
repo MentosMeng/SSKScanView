@@ -1,0 +1,140 @@
+/**
+ *
+ *  BY Whde
+ *  whde_006@163.com
+ **/
+
+#import "ZBarSDK.h"
+
+/**
+ *
+ *
+ *  <UINavigationControllerDelegate, UIImagePickerControllerDelegate, ZBarReaderDelegate>
+ *  ZBarReaderViewController *reader;
+ **/
+
+- (void)saoBtnClick
+{
+    if (reader == nil) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            reader = [ZBarReaderViewController new];
+            reader.readerDelegate = self;
+            //非全屏
+            reader.tracksSymbols = NO;
+            //隐藏底部控制按钮
+            reader.showsZBarControls = NO;
+            //设置自己定义的界面
+            [self setOverlayPickerView];
+            [self presentViewController:reader animated:YES completion:nil];
+        });
+    }else if (reader.presentingViewController == nil){
+        [self presentViewController:reader animated:YES completion:nil];
+        NSString *mediaType = AVMediaTypeVideo;
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+        if(authStatus == AVAuthorizationStatusNotDetermined || authStatus == AVAuthorizationStatusDenied){
+            Alert *alert = [[Alert alloc] initWithTitle:@"相机权限受限" message:@"请在iPhone的\"设置->隐私->相机\"选项中,允许\"书香山西\"访问您的相机." delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+}
+
+- (void)setOverlayPickerView
+{
+    //左侧的view
+    UIImageView *leftView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, ScreenHeight)];
+    leftView.alpha = 0.5;
+    leftView.backgroundColor = [UIColor blackColor];
+    [reader.view addSubview:leftView];
+    //右侧的view
+    UIImageView *rightView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth-30, 0, 30, ScreenHeight)];
+    rightView.alpha = 0.5;
+    rightView.backgroundColor = [UIColor blackColor];
+    [reader.view addSubview:rightView];
+    
+    //最上部view
+    UIImageView* upView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 0, ScreenWidth-60, (self.view.center.y-(ScreenWidth-60)/2))];
+    upView.alpha = 0.5;
+    upView.backgroundColor = [UIColor blackColor];
+    [reader.view addSubview:upView];
+    
+    //底部view
+    UIImageView * downView = [[UIImageView alloc] initWithFrame:CGRectMake(30, (self.view.center.y+(ScreenWidth-60)/2), (ScreenWidth-60), (ScreenHeight-(self.view.center.y-(ScreenWidth-60)/2)))];
+    downView.alpha = 0.5;
+    downView.backgroundColor = [UIColor blackColor];
+    [reader.view addSubview:downView];
+    
+    UIImageView *centerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-60, ScreenWidth-60)];
+    centerView.center = self.view.center;
+    centerView.image = [UIImage imageNamed:@"扫描框.png"];
+    centerView.contentMode = UIViewContentModeScaleAspectFit;
+    centerView.backgroundColor = [UIColor clearColor];
+    [reader.view addSubview:centerView];
+    
+    UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(upView.frame), ScreenWidth-60, 2)];
+    line.image = [UIImage imageNamed:@"扫描线.png"];
+    line.contentMode = UIViewContentModeScaleAspectFill;
+    line.backgroundColor = [UIColor clearColor];
+    [reader.view addSubview:line];
+    
+    NSString *mediaType = AVMediaTypeVideo;
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+    if(authStatus == AVAuthorizationStatusNotDetermined || authStatus == AVAuthorizationStatusDenied){
+        line.hidden = YES;
+        Alert *alert = [[Alert alloc] initWithTitle:@"相机权限受限" message:@"请在iPhone的\"设置->隐私->相机\"选项中,允许\"自游邦\"访问您的相机." delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alert show];
+    }else{
+        CABasicAnimation *animation = [Animations moveYTime:2 fromY:[NSNumber numberWithFloat:0] toY:[NSNumber numberWithFloat:ScreenWidth-60-2] rep:30];
+        [line.layer addAnimation:animation forKey:@"LineAnimation"];
+    }
+    
+    
+    UILabel *msg = [[UILabel alloc] initWithFrame:CGRectMake(30, CGRectGetMinY(downView.frame), ScreenWidth-60, 60)];
+    msg.backgroundColor = [UIColor clearColor];
+    msg.textColor = [UIColor whiteColor];
+    msg.textAlignment = NSTextAlignmentCenter;
+    msg.font = [UIFont systemFontOfSize:16];
+    msg.text = @"将二维码放入框内,即可自动扫描";
+    [reader.view addSubview:msg];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, ScreenHeight-100, ScreenWidth, 100)];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:24];
+    label.text = @"扫一扫,让旅行更轻松";
+    [reader.view addSubview:label];
+    
+    // 返回
+    NavgationBarView *bar = [[NavgationBarView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, NAV_BAR_HEIGHT)];
+    [bar.leftButton addTarget:self action:@selector(dismissOverlayView:) forControlEvents:UIControlEventTouchUpInside];
+    CGRect rect = bar.leftButton.frame;
+    rect.origin.x+=8;
+    bar.leftButton.frame = rect;
+    [bar.leftButton setImage:[UIImage imageNamed:@"白色返回_想去"] forState:UIControlStateNormal];
+    bar.barView.image = nil;
+    bar.alpha = 1;
+    bar.bgView.alpha = 0;
+    [reader.view addSubview:bar];
+}
+//取消button方法
+- (void)dismissOverlayView:(id)sender{
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    id<NSFastEnumeration> results = [info objectForKey:ZBarReaderControllerResults];
+    if (results) {
+        ZBarSymbol * symbol;
+        
+        for(symbol in results)
+            break;
+        [picker dismissViewControllerAnimated:YES completion:^{
+        }];
+        NSString *data=symbol.data;
+        /* 解决中文乱码问题 */
+        if ([data canBeConvertedToEncoding:NSShiftJISStringEncoding])
+        {
+            data = [NSString stringWithCString:[data cStringUsingEncoding: NSShiftJISStringEncoding] encoding:NSUTF8StringEncoding];
+        }
+        NSLog(@"%@", data}

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/zzdy_IOS/!svn/ver/1689/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK
+END
+ZBarHelpController.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/ZBarHelpController.h
+END
+ZBarImageScanner.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/ZBarImageScanner.h
+END
+ZBarReaderView.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/zzdy_IOS/!svn/ver/1689/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/ZBarReaderView.h
+END
+zbar.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/zbar.h
+END
+ZBarReaderViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/ZBarReaderViewController.h
+END
+ZBarSDK.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/ZBarSDK.h
+END
+ZBarImage.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/ZBarImage.h
+END
+ZBarSymbol.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/ZBarSymbol.h
+END
+ZBarCaptureReader.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/ZBarCaptureReader.h
+END
+ZBarReaderController.h
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/ZBarReaderController.h
+END
+ZBarCameraSimulator.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/zzdy_IOS/!svn/ver/605/trunk/IOS_appstore/SaoSaoKan/SaoSaoGou/SDKS/ZBarSDK/Headers/ZBarSDK/ZBarCameraSimulator.h
+END
